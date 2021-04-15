@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
-Implementation-Title: hibernatecriteriaexample
+Implementation-Title: hibernategetvsload
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: rakes
-Implementation-Vendor-Id: hibernatecriteriaexample
+Implementation-Vendor-Id: hibernategetvsload
 Build-Jdk: 1.8.0_251
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
- ot-starter-parent/hibernatecriteriaexample
+ ot-starter-parent/hibernategetvsload
 Created-By: Maven Integration for Eclipse
 

@@ -1,13 +1,18 @@
 package com.netsurfingzone.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
-public class Student {
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Student implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -20,7 +25,7 @@ public class Student {
 
 	@Column(name = "university")
 	private String university;
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -52,9 +57,5 @@ public class Student {
 	public void setUniversity(String university) {
 		this.university = university;
 	}
-
-	
-	
-	
 
 }

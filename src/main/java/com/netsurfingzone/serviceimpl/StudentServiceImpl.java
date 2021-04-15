@@ -1,13 +1,9 @@
 package com.netsurfingzone.serviceimpl;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
 
+import org.hibernate.Session;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,14 +23,12 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 	@Transactional
-	public List<Student> getStudents() {
+	public Student retrieveEntity(Long id) {
 
-		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-		CriteriaQuery<Student> criteriaQuery = criteriaBuilder.createQuery(Student.class);
-		Root<Student> studentRoot = criteriaQuery.from(Student.class);
-		criteriaQuery.orderBy(criteriaBuilder.desc(studentRoot.get("name")));
-		List<Student> students = entityManager.createQuery(criteriaQuery).getResultList();
-		return students;
+		Session session = entityManager.unwrap(Session.class);
+		Student student = session.load(Student.class, id);
+		System.out.println("name is"+student.getName());
+		return student;
 	}
 
 }

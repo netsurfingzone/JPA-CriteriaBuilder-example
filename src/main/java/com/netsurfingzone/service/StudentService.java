@@ -1,7 +1,5 @@
 package com.netsurfingzone.service;
 
-import java.util.List;
-
 import org.springframework.stereotype.Component;
 
 import com.netsurfingzone.entity.Student;
@@ -11,5 +9,5 @@ public interface StudentService {
 
 	public Student save(Student student);
 
-	public List<Student> getStudents();
+	public Student retrieveEntity(Long id);
 }
